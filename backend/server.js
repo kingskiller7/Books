@@ -10,7 +10,7 @@ const cors = require('cors');
 app.use(bodyParser.json());
 app.use(cors({
     // origin: 'https://books-frontend-lemon.vercel.app',
-    origin: 'http://localhost:3000',
+    origin: '',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
