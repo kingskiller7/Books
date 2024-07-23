@@ -1,0 +1,63 @@
+.box {
+    background: linear-gradient(145deg, #282c34, #3a3f47);
+    padding: 20px;
+    width: 40rem;
+    max-width: 80%;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 -4px 15px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: drop-in 1s ease-in forwards;
+}
+
+.box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 -6px 20px rgba(0, 0, 0, 0.3);
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin: 1rem;
+}
+
+input[type="text"] {
+    width: 90%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+}
+
+@keyframes drop-in {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.popup-message {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    animation: fadeIn 3s ease-in-out;
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}

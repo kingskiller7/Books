@@ -1,0 +1,257 @@
+.container {
+    position: relative;
+    left: 50%;
+    transform: translateX(-60%);
+    width: 80%;
+    height: 100%;
+    overflow: hidden;
+    top: 10%;
+    text-align: center;
+    color: white;
+    border-radius: 2rem;
+    background-color: #1c1e22;
+    animation: drop-in 1s ease-out step-end;
+    border: 1px solid #555;
+    transition: box-shadow 0.3s;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.header {
+    display: fixed;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 0 2rem 0 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    animation: drop-in 1s ease-out forwards;
+    border-bottom: 1px solid #555;
+    background-color: #2c2f34;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 1s;
+}
+
+.header:hover {
+    animation: drop-out 1s ease-in-out reverse;
+}
+
+ul {
+    position: relative;
+    border: 1px solid;
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+    width: 99.9%;
+    height: 80%;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 15px;
+}
+
+li {
+    padding: 8px 16px;
+    text-align: left;
+    border-bottom: 1px solid #555;
+    background-color: #2c2f34;
+    transition: background-color 0.3s;
+    opacity: 0;
+    position: relative;
+    animation: drop-in 1.5s ease-in forwards;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+@keyframes drop-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-100vh);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+button {
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 0 0 0 10px;
+    background-color: #3b4049;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #555;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #4b515a;
+    transform: scale(1.05);
+}
+
+.success {
+    color: green;
+    border: 1px solid green;
+}
+
+.success:hover {
+    background-color: #006400;
+    color: white;
+}
+
+.danger {
+    color: red;
+    position: absolute;
+    right: 20px;
+    border: 1px solid red;
+}
+
+.danger:hover {
+    background-color: #8b0000;
+    color: white;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.popup-content {
+    background: #282c34;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.popup-content h2 {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.popup label {
+    display: block;
+    margin: 1rem 0;
+    color: #ddd;
+}
+
+.popup input,
+.popup textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 4px 0 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #444;
+    color: #fff;
+}
+
+.popup .save-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.popup .save-button:hover {
+    background-color: #45a049;
+}
+
+.popup .close-button {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.popup .close-button:hover {
+    background-color: #e03131;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.pagination button {
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color: #3b4049;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #555;
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 5px 5px 10px 15px;
+}
+
+.pagination button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+.pagination button:hover:enabled {
+    background-color: #4b515a;
+    transform: scale(1.05);
+}
+
+.popup-message {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    animation: fadeIn 3s ease-in-out;
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+.description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    max-width: 100%;
+}
+
+.description.show {
+    white-space: normal;
+}
