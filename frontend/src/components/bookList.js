@@ -14,7 +14,7 @@ const BookList = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const booksPerPage = 3;
 
-    const baseURL = 'http://localhost:5000/books';
+    const baseURL = 'https://books-backend-two.vercel.app';
 
     useEffect(() => {
         fetchBooks();
