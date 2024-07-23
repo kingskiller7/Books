@@ -17,6 +17,9 @@ app.use(cors({
 const url = process.env.MONGODB_URL;
 mongoose.connect(url);
 
+app.get('/', (req, res) => {
+    res.json("Hello");
+})
 app.post('/books', bookController.addBook);
 app.get('/books', bookController.getBooks);
 app.put('/books/:id', bookController.updateBook);
