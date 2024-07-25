@@ -1,6 +1,6 @@
 const Book = require('../model/books');
 
-exports.addBook = async (req, res) => {
+const addBook = async (req, res) => {
   try {
     const { name, description } = req.body;
     const newBook = new Book({ name, description });
@@ -11,7 +11,7 @@ exports.addBook = async (req, res) => {
   }
 };
 
-exports.getBooks = async (req, res) => {
+const getBooks = async (req, res) => {
   try {
     const books = await Book.find();
     res.status(200).json(books);
@@ -20,7 +20,7 @@ exports.getBooks = async (req, res) => {
   }
 };
 
-exports.updateBook = async (req, res) => {
+const updateBook = async (req, res) => {
   try {
     const { id } = req.params;
     const { name, description } = req.body;
@@ -31,7 +31,7 @@ exports.updateBook = async (req, res) => {
   }
 };
 
-exports.deleteBook = async (req, res) => {
+const deleteBook = async (req, res) => {
   try {
     const { id } = req.params;
     await Book.findByIdAndDelete(id);
@@ -44,3 +44,10 @@ exports.deleteBook = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+
+module.exports = {
+  addBook,
+  getBooks,
+  updateBook,
+  deleteBook
+}
