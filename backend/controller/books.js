@@ -40,14 +40,10 @@ const deleteBook = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-};
 
 module.exports = {
   addBook,
   getBooks,
   updateBook,
   deleteBook
-}
+};
