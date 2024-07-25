@@ -10,7 +10,7 @@ const Home = () => {
 
   const handleAddBook = async (e) => {
     e.preventDefault();
-    await axios.post('https://books-backend-two.vercel.app:5000/books', { name, description });
+    await axios.post('https://books-backend-api.vercel.app:5000/books', { name, description });
     setName('');
     setDescription('');
     showPopupMessage('Book added successfully!');
