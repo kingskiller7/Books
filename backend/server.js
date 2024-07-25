@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const bookController = require('./controller/books');
 const dotenv = require('dotenv');
+const helmet = require('helmet');
+const cors = require('cors');
 
 dotenv.config();
 const app = express();
-const cors = require('cors');
-app.use(bodyParser.json());
 app.use(cors());
 // app.use(cors({
 //     origin: 'https://books-frontend-lemon.vercel.app',
@@ -15,9 +15,15 @@ app.use(cors());
 //     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 //     credentials: true
 // }));
+app.use(bodyParser.json());
+app.use(helmet());
 
 const url = process.env.MONGODB_URL;
-mongoose.connect(url);
+mongoose.connect(url, { 
+    useNewUrlParser: true, useUnifiedTopology:true 
+}).then(() => {
+    console.log('MongoDB connected');
+}).catch(err => console.log(err));
 
 app.get('/', (req, res) => {
     res.json("Hello");
