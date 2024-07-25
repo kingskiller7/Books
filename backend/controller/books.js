@@ -1,4 +1,4 @@
-const Book = require('./model');
+const Book = require('../model/books');
 
 exports.addBook = async (req, res) => {
   try {
@@ -36,6 +36,10 @@ exports.deleteBook = async (req, res) => {
     const { id } = req.params;
     await Book.findByIdAndDelete(id);
     res.status(200).json({ message: 'Book deleted' });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
